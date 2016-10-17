@@ -1,0 +1,26 @@
+
+A LOAD OF CRUD
+
+
+WHAT IS SQL?
+SQL stands for 'Structure Query Language' and is used to manage relational databases, and the data stored within them.  It ensures that the data stored is accurate and secure; no matter how large the database might grow to be.  SQL also uses simple statements, which means that it's easily transferrable between different frameworks and applications. The language itself is widely used, so once learnt it means that the user can enjoy a high level of freedom.
+
+SQL's commands are very intuitive and often just require simple english statements to complete the task e.g. INSERT, DELETE, UPDATE etc.
+
+CREATE, READ, UPDATE, DELETE - SQL COMMAND CHEAT SHEET
+
+CREATE:
+  CREATE TABLE students(id serial PRIMARY KEY, name varchar(55));
+
+READ:
+  SELECT * FROM students;
+
+UPDATE
+  UPDATE students
+  SET name = ‘Kath'
+  WHERE name = ‘Anna’;
+
+DELETE
+  DROP TABLE students;
+
+  DELETE FROM students WHERE name = ‘Kath’;
