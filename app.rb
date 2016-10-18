@@ -3,7 +3,9 @@ require_relative './models/link'
 
 class Bookmark_Manager < Sinatra::Base
 
-set :environment, :development
+# set :environment, :development
+
+ENV["RACK_ENV"] ||= "development"
 
   get '/' do
     erb :frontpage
