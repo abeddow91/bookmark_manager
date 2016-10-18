@@ -9,3 +9,8 @@ gem 'dm-postgres-adapter'
 gem 'capybara'
 gem 'rspec'
 gem 'sinatra'
+gem 'heroku'
+
+group :test do
+  gem 'database_cleaner'
+end

@@ -2,6 +2,9 @@ require 'sinatra/base'
 require_relative './models/link'
 
 class Bookmark_Manager < Sinatra::Base
+
+set :environment, :development
+
   get '/' do
     erb :frontpage
   end
@@ -15,12 +18,10 @@ class Bookmark_Manager < Sinatra::Base
     erb :add_link
   end
 
-  get
-
-
-
-
-
+  post '/add_data' do
+    Link.create(title: params[:link_title], url: params[:link_url]);
+    redirect '/links'
+  end
 
   # start the server if ruby file executed directly
   run! if app_file == $0
