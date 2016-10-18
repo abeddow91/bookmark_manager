@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <ul id='links'>
+
+    <% @saved_links.each do |link|%>
+    <li>
+      Title: <%= link.title %>
+      URL: <%= link.url %>
+    </li>
+    <%end%>
+  </ul>
+
+  <form action="/links/new">
+    Username:<br>
+    <input type="text" name="link">
+    <input type="submit" value="add">
+  </form>
+
+  </body>
+</html>
