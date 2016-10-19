@@ -1,11 +1,6 @@
 feature 'Adding links' do
   scenario 'Form adds links' do
-    visit '/'
-    click_button 'login'
-    click_button 'add'
-    fill_in('link_title', with: 'Dinosaur Comics')
-    fill_in('link_url', with: 'www.qwantz.com')
-    click_button('add')
-    expect(page).to have_content 'www.qwantz.com'
+    sign_in_and_save_link
+    expect(page).to have_content 'www.facebook.com'
   end
 end

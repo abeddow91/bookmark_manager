@@ -5,6 +5,7 @@ require File.join(File.dirname(__FILE__), '..', './app.rb')
 require 'capybara/rspec'
 require 'database_cleaner'
 require './app.rb'
+require_relative './features/web_helpers'
 
 DatabaseCleaner.strategy = :transaction
 Capybara.app = Bookmark_Manager
