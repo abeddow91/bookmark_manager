@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 feature 'adds tag to the link' do
-  scenario 'adds a tag when link is made' do
+  scenario 'adds a tag when link is made', focus: true do
     visit '/'
     click_button 'login'
     click_button 'add'
@@ -9,6 +9,7 @@ feature 'adds tag to the link' do
     fill_in('link_url', with: 'www.facebook.com')
     fill_in('link_tags', with: 'social media')
     click_button('add')
-    expect(page).to have_content('social media')
+    link = Link.first
+    expect(link.tags.map(&:tag_name)).to include('social media')
   end
 end
