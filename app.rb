@@ -1,19 +1,23 @@
 ENV["RACK_ENV"] ||= "development"
 
+
 require 'sinatra/base'
 require_relative './models/data_mapper_setup'
 require_relative './models/link'
 require_relative './models/tag'
-
+require 'bcrypt'
 
 class Bookmark_Manager < Sinatra::Base
+
+  enable :sessions
+  set :session_secret, 'super secret'
 
   get '/' do
     erb :frontpage
   end
 
   post '/user' do
-    user = User.create(user_name: params[:username])
+    User.create(user_name: params[:username], password: params[:password])
     User.user_count
     redirect '/welcome'
   end
