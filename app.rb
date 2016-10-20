@@ -17,13 +17,17 @@ class Bookmark_Manager < Sinatra::Base
   end
 
   post '/user' do
-    User.create(user_name: params[:username], password: params[:password])
+    user = User.create(user_name: params[:username], password_digest: params[:password])
+    session[:user_name] = user.user_name
     User.user_count
+    userid = session[:user_id]
+    p userid
     redirect '/welcome'
   end
 
   get '/welcome' do
-    @user = User.last.user_name
+    @user = :user_id.user_name
+
     erb :welcome
   end
 
