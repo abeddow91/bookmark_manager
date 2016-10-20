@@ -4,7 +4,6 @@ require 'sinatra/base'
 require_relative './models/data_mapper_setup'
 require_relative './models/link'
 require_relative './models/tag'
-# require_relative './models/tagging'
 
 
 class Bookmark_Manager < Sinatra::Base
@@ -23,7 +22,7 @@ class Bookmark_Manager < Sinatra::Base
   end
 
   post '/add_data' do
-    link = Link.create(title: params[:link_title], url: params[:link_url], )
+    link = Link.new(title: params[:link_title], url: params[:link_url], )
     tag = Tag.first_or_create(tag_name: params[:link_tags])
     link.tags << tag
     link.save
