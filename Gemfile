@@ -10,6 +10,8 @@ gem 'capybara'
 gem 'rspec'
 gem 'sinatra'
 gem 'heroku'
+gem 'coveralls', require: false
+gem 'rake'
 
 group :test do
   gem 'database_cleaner'
