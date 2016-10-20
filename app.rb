@@ -22,16 +22,20 @@ class Bookmark_Manager < Sinatra::Base
   end
 
   post '/add_data' do
-    link = Link.new(title: params[:link_title], url: params[:link_url], )
-    tag = Tag.first_or_create(tag_name: params[:link_tags])
-    link.tags << tag
-    link.save
+    link = Link.new(title: params[:link_title], url: params[:link_url])
+    tags = params[:link_tags].split(' ')
+    tags.each do |single_tag|
+      tag = Tag.first_or_create(tag_name: single_tag)
+      link.tags << tag
+      link.save
+    end
     redirect '/links'
   end
 
   get '/tags/:tag_search' do
     @tag_search = params[:tag_search]
     tag = Tag.first(tag_name: @tag_search)
+
     @saved_links = tag.links
     erb :links
   end

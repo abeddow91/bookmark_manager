@@ -16,3 +16,11 @@ def save_link
   fill_in('link_tags', with: 'shopping')
   click_button('add')
 end
+
+def add_second_tag
+  click_button 'add'
+  fill_in('link_title', with: 'Facebook')
+  fill_in('link_url', with: 'www.facebook.com')
+  fill_in('link_tags', with: 'social photos')
+  click_button('add')
+end

@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<body>
 
-    <ul id='links'>
+  <ul id='links'>
 
     <% @saved_links.each do |link|%>
     <li>
       Title: <%= link.title %>
       URL: <%= link.url %>
-      <% link.tags.each do |tag| %>
-        Tag: <%= tag.tag_name %>
+      Tag: <% link.tags.each do |tag| %>
+      <%= tag.tag_name %>
       <% end %>
-
+      
     </li>
     <%end%>
 
@@ -26,5 +26,5 @@
     <input type="submit" value="add">
   </form>
 
-  </body>
+</body>
 </html>
