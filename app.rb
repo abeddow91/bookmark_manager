@@ -12,6 +12,17 @@ class Bookmark_Manager < Sinatra::Base
     erb :frontpage
   end
 
+  post '/user' do
+    user = User.create(user_name: params[:username])
+    User.user_count
+    redirect '/welcome'
+  end
+
+  get '/welcome' do
+    @user = User.last.user_name
+    erb :welcome
+  end
+
   get '/links' do
     @saved_links = Link.all
     erb :links

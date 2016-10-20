@@ -1,7 +1,6 @@
 
 def sign_in_and_save_link
-  visit '/'
-  click_button 'login'
+  visit '/links'
   click_button 'add'
   fill_in('link_title', with: 'Facebook')
   fill_in('link_url', with: 'www.facebook.com')
@@ -10,6 +9,7 @@ def sign_in_and_save_link
 end
 
 def save_link
+  visit '/links'
   click_button 'add'
   fill_in('link_title', with: 'Amazon')
   fill_in('link_url', with: 'www.amazon.com')
@@ -18,6 +18,7 @@ def save_link
 end
 
 def add_second_tag
+  visit '/links'
   click_button 'add'
   fill_in('link_title', with: 'Facebook')
   fill_in('link_url', with: 'www.facebook.com')
